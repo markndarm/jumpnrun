@@ -1,0 +1,226 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+#gameSpace {
+  display: grid;
+  grid-template-rows: 1fr 35fr 1fr;
+}
+/* Image from: https://thumbs.dreamstime.com/b/pixel-art-clouds-background-seamless-sky-texture-backdrop-vector-illustration-223655107.jpg*/
+#gameContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: url("assets/images/background.jpg");
+  background-position-x: 0px;
+}
+#trees {
+  width: 100%;
+  background: url("assets/images/trees.png");
+  background-position-x: 0px;
+  position: absolute;
+}
+/* Image from: https://e7.pngegg.com/pngimages/298/25/png-clipart-the-legend-of-zelda-link-sprite-2d-computer-graphics-unity-animation-sprite-game-3d-computer-graphics.png */
+#gameCharacter {
+  width: 80px; /* 40 */
+  height: 120px;
+  background: url("assets/images/CharacterMove0.png");
+  background-size: cover;
+  background-position-x: -40px;
+  position: absolute;
+}
+/* Image from: data:image/jpeg;base64,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 */
+#gameGround {
+  height: 100px;
+  width: 100%;
+  background: url("assets/images/baseGround.jpg");
+  background-position-x: 0px;
+  position: absolute;
+}
+#obstacleTwo {
+  height: 100px;
+  width: 100px;
+  background: url("assets/images/stone.jpg");
+  background-size: cover;
+  position: absolute;
+}
+#obstacleOne {
+  height: 60px;
+  width: 200px;
+  background: url("assets/images/hover.jpg");
+  background-size: cover;
+  position: absolute;
+}
+#obstacleThree {
+  height: 60px;
+  width: 200px;
+  background: url("assets/images/stone.jpg");
+  background-size: cover;
+  position: absolute;
+}
+#gameFooter {
+  background-color: rgb(189, 185, 185);
+}
+#enemy1 {
+  width: 150;
+  height: 150;
+  background: url("assets/images/Enemy.png");
+  background-size: cover;
+  position: absolute;
+  display: block;
+}
+#shield {
+  width: 40px;
+  height: 120px;
+  position: absolute;
+  background: url("assets/images/shield.png");
+  display: none;
+}
+#castleBase {
+  width: 700px;
+  height: 500px;
+  background: url("assets/images/castle.png");
+  position: absolute;
+  background-size: cover;
+}
+#sakura1 {
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  background: url("assets/images/sakura1.png");
+  background-size: cover;
+}
+#sakura2 {
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  background: url("assets/images/sakura1.png");
+  background-size: cover;
+}
+#sakura3 {
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  background: url("assets/images/sakura1.png");
+  background-size: cover;
+}
+#tori1 {
+  width: 300px;
+  height: 230px;
+  position: absolute;
+  background: url("assets/images/tori1.png");
+  background-size: cover;
+}
+#cat1 {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background: url("assets/images/cat1.png");
+  background-size: cover;
+}
+#cat2 {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  background: url("assets/images/cat1.png");
+  background-size: cover;
+}
+#cat3 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background: url("assets/images/cat1.png");
+  background-size: cover;
+}
+#cat4 {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  background: url("assets/images/cat1.png");
+  background-size: cover;
+}
+#familyMart1 {
+  width: 420px;
+  height: 500px;
+  position: absolute;
+  background: url("assets/images/familyMart.png");
+  background-size: cover;
+}
+#house1 {
+  width: 400px;
+  height: 280px;
+  position: absolute;
+  background: url("assets/images/house1.png");
+  background-size: cover;
+}
+#sword {
+  width: 50px;
+  height: 100px;
+  background: url("assets/images/sword.png");
+  background-size: cover;
+  position: absolute;
+}
+#heartsBoard {
+  width: 200px;
+  height: 200px;
+  background: url("assets/images/heartsBoard.png");
+  background-size: cover;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+}
+#arrowsDisplay {
+  top: 150px;
+  right: 30px;
+  position: absolute;
+  font-size: 30px;
+  font-weight: bolder;
+}
+#arrowIcon {
+  top: 140px;
+  right: 70px;
+  width: 70px;
+  height: 50px;
+  position: absolute;
+  background: url("assets/images/arrows.png");
+  background-size: cover;
+}
+#gameScore {
+  top: 105px;
+  left: 70px;
+  position: absolute;
+  font-size: 30px;
+  font-weight: bolder;
+}
+#gameScoreSign {
+  top: 18px;
+  left: 10px;
+  position: absolute;
+  width: 150px;
+}
+#gyarados {
+  width: 450px;
+  height: 200px;
+  position: absolute;
+  background: url("assets/images/gyarados.png");
+  background-size: cover;
+  display: none;
+}
+#gameCounter {
+  top: 75px;
+  left: 60px;
+  position: absolute;
+  font-size: 30px;
+  font-weight: bolder;
+}
+#gameHeader, #gameFooter {
+  background: black;
+}
+#arcade {
+  width: 100%;
+  height: 100%;
+}
+#runButton {
+  background: black;
+  color: white;
+}
